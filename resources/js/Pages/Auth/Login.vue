@@ -33,11 +33,11 @@ const submit = () => {
         <Head title="Log in" />
 
         <div class="text-center md:text-start">
-            <h2 class="text-2xl font-bold text-gray-900">
-                Selamat Datang di MASPOS
-            </h2>
+            <h2 class="text-2xl font-bold text-gray-900">Masuk Akun MASPOS</h2>
             <p class="mt-2 text-sm text-gray-600">
-                Masuk untuk mengelola bisnis Anda dengan mudah dan efisien.
+                Daftar sekarang untuk memulai mengelola bisnis Anda. MASPOS
+                menghadirkan solusi point-of-sale terbaik untuk kemudahan
+                operasional sehari-hari.
             </p>
         </div>
 
@@ -47,7 +47,7 @@ const submit = () => {
 
         <form @submit.prevent="submit" class="mt-8 space-y-6">
             <div>
-                <InputLabel for="email" value="Username" />
+                <InputLabel for="email" value="Email" />
                 <TextInput
                     id="email"
                     type="email"
@@ -55,8 +55,8 @@ const submit = () => {
                     v-model="form.email"
                     required
                     autofocus
-                    autocomplete="username"
-                    placeholder="Masukkan username"
+                    autocomplete="email"
+                    placeholder="Masukkan email"
                 />
                 <InputError class="mt-2" :message="form.errors.email" />
             </div>

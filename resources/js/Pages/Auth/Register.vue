@@ -26,7 +26,9 @@ const submit = () => {
         <div class="text-center md:text-start">
             <h2 class="text-2xl font-bold text-gray-900">Buat Akun MASPOS</h2>
             <p class="mt-2 text-sm text-gray-600">
-                Daftar sekarang untuk memulai mengelola bisnis Anda.
+                Daftar sekarang untuk memulai mengelola bisnis Anda. MASPOS
+                menghadirkan solusi point-of-sale terbaik untuk kemudahan
+                operasional sehari-hari.
             </p>
         </div>
 
