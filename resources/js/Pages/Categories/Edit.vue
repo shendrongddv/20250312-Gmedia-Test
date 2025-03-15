@@ -21,7 +21,7 @@ const submit = () => {
     <Head title="Edit Kategori" />
 
     <PosLayout>
-        <div class="mx-auto max-w-lg">
+        <div class="mx-auto w-full max-w-xl">
             <div class="overflow-hidden rounded-lg bg-white shadow-sm">
                 <div class="p-6">
                     <h1 class="mb-6 text-xl font-bold text-gray-900">

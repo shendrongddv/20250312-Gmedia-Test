@@ -21,7 +21,7 @@ const filteredProducts = computed(() => {
         <!-- Product grid -->
         <div
             v-else
-            class="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6"
+            class="grid grid-cols-2 gap-4 max-md:px-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6"
         >
             <PosProductCard
                 v-for="product in filteredProducts"

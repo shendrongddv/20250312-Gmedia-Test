@@ -103,20 +103,88 @@ Mengelola state produk di dashboard:
 - Fungsi mengatur produk
 - Fungsi mengatur filter
 
+## Fungsi Pinia Cart
+
+Cart Store (`stores/cart.js`) menyediakan fungsi-fungsi berikut:
+
+### State
+
+- `items`: Array yang berisi semua item di keranjang
+
+### Getters
+
+- `totalItems`: Menghitung total jumlah item di keranjang
+- `totalPrice`: Menghitung total harga semua item di keranjang
+
+### Actions
+
+- `addItem(product)`: Menambahkan produk ke keranjang, dengan validasi stok
+- `removeItem(productId)`: Menghapus item dari keranjang berdasarkan ID
+- `increaseQuantity(productId)`: Menambah jumlah item, dengan validasi stok
+- `decreaseQuantity(productId)`: Mengurangi jumlah item, menghapus jika quantity = 0
+- `clearCart()`: Mengosongkan keranjang
+- `saveToLocalStorage()`: Menyimpan keranjang ke localStorage
+
+## Alur Transaksi
+
+### 1. Pemilihan Produk (Dashboard)
+
+- User melihat daftar produk di halaman Dashboard
+- User dapat memfilter produk berdasarkan kategori atau pencarian
+- User mengklik tombol "+" pada produk untuk menambahkan ke keranjang
+- **Pinia Store**: `productStore` mengelola daftar dan filter produk, `cartStore.addItem()` dipanggil saat produk ditambahkan
+
+### 2. Pengelolaan Keranjang
+
+- User dapat melihat isi keranjang dengan mengklik tombol keranjang di navbar
+- User dapat mengubah jumlah produk dengan tombol "+" dan "-"
+- User dapat menghapus produk dari keranjang
+- **Pinia Store**: `cartStore` mengelola semua operasi keranjang (`increaseQuantity()`, `decreaseQuantity()`, `removeItem()`)
+
+### 3. Checkout (Halaman Cart)
+
+- User mengklik tombol "Lihat Keranjang" untuk pergi ke halaman Cart
+- Halaman Cart menampilkan daftar produk di keranjang dan total harga
+- User mengklik tombol "Lanjutkan ke Pembayaran" untuk checkout
+- **Pinia Store**: `cartStore` menyediakan data untuk halaman Cart
+
+### 4. Proses Pembayaran
+
+- Form checkout mengirimkan data keranjang ke server
+- Server membuat transaksi baru dan item transaksi
+- Server mengurangi stok produk
+- **Pinia Store**: `cartStore.clearCart()` dipanggil setelah checkout berhasil
+
+### 5. Konfirmasi Transaksi
+
+- User diarahkan ke halaman sukses transaksi
+- Halaman menampilkan detail transaksi dan total pembayaran
+- User dapat kembali ke Dashboard untuk transaksi baru
+
+### 6. Riwayat Transaksi
+
+- User dapat melihat riwayat transaksi di halaman Transaksi
+- User dapat melihat detail transaksi dengan mengklik transaksi
+
+### Penyimpanan Data
+
+- Data keranjang disimpan di localStorage untuk persistensi
+- Data transaksi disimpan di database MySQL
+- **Pinia Store**: `cartStore` menggunakan `watch` untuk menyimpan perubahan ke localStorage
+
 ## Instalasi
 
 1. Clone repository
 
 ```bash
-git clone https://github.com/username/warung-madura.git
-cd warung-madura
+git clone https://github.com/shendrongddv/20250312-Gmedia-Test.git
 ```
 
 2. Install dependencies
 
 ```bash
 composer install
-npm install
+pnpm install
 ```
 
 3. Setup environment
@@ -146,5 +214,5 @@ pnpm dev
 
 ## Login Default
 
-Email: admin@example.com
+Email: admin@gmail.com
 Password: password
