@@ -32,7 +32,7 @@ const submit = () => {
     <GuestLayout>
         <Head title="Log in" />
 
-        <div>
+        <div class="text-center md:text-start">
             <h2 class="text-2xl font-bold text-gray-900">
                 Selamat Datang di MASPOS
             </h2>

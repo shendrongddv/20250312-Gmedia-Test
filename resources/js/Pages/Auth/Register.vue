@@ -23,7 +23,7 @@ const submit = () => {
     <GuestLayout>
         <Head title="Register" />
 
-        <div>
+        <div class="text-center md:text-start">
             <h2 class="text-2xl font-bold text-gray-900">Buat Akun MASPOS</h2>
             <p class="mt-2 text-sm text-gray-600">
                 Daftar sekarang untuk memulai mengelola bisnis Anda.
